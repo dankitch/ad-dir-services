@@ -43,7 +43,28 @@ module "avm-res-compute-virtualmachine" {
   version                 = "0.10.0"
   resource_group_name     = azurerm_resource_group.main.name
   location                = var.primary_region
-  name                    = module.naming.virtual_machine.name
+  name                    = module.naming.virtual_machine.name_unique
   zone                    = "1"
   virtualmachine_sku_size = "Standard_B2ms"
+
+  source_image_reference = {
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2022-datacenter-g2"
+    version   = "latest"
+  }
+
+  network_interfaces = {
+    network_interface_1 = {
+      name = module.naming.network_interface.name_uniuqe
+      ip_configurations = {
+        ip_configuration_1 = {
+          name                          = "${module.naming.network_interface.name_unique}-ipconfig1"
+          subnet_id                     = module.avm-res-network-virtualnetwork.subnets["subnet0"].id
+          private_ip_address_allocation = "Dynamic"
+        }
+      }
+    }
+
+  }
 }
