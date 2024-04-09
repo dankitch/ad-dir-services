@@ -20,7 +20,7 @@ locals {
       address_prefixes = [cidrsubnet(local.virtual_network_address_space, 8, i)]
     }
   }
-  virtual_network_address_space = "10.0.0.0/16"
+  virtual_network_address_space = "10.50.20.0/16"
 }
 
 module "avm-res-network-virtualnetwork" {
@@ -31,7 +31,7 @@ module "avm-res-network-virtualnetwork" {
   name                          = module.naming.virtual_network.name
   subnets                       = local.subnets
   enable_telemetry              = false
-  virtual_network_address_space = ["10.0.0.0/16"]
+  virtual_network_address_space = ["10.50.20.0/16"]
   virtual_network_dns_servers = {
     dns_servers = ["8.8.8.8"]
   }
