@@ -30,8 +30,10 @@ module "avm-res-network-virtualnetwork" {
   location                      = var.primary_region
   name                          = module.naming.virtual_network.name
   subnets                       = local.subnets
+  enable_telemetry              = false
   virtual_network_address_space = ["10.0.0.0/16"]
   virtual_network_dns_servers = {
     dns_servers = ["8.8.8.8"]
   }
+
 }
