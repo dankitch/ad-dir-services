@@ -2,7 +2,15 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.75.0"
+      version = "~> 3.90"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.6"
+    }
+    tls = {
+      source  = "hashicorp/tls"
+      version = "~> 4.0"
     }
   }
   backend "azurerm" {
@@ -17,10 +25,3 @@ provider "azurerm" {
   }
 }
 
-provider "random" {
-
-}
-
-provider "tls" {
-
-}
