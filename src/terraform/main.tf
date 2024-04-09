@@ -20,7 +20,7 @@ locals {
       address_prefixes = [cidrsubnet(local.virtual_network_address_space, 8, i)]
     }
   }
-  virtual_network_address_space = "10.50.24.0/16"
+  virtual_network_address_space = "10.0.0.0/16"
 }
 
 module "avm-res-network-virtualnetwork" {
