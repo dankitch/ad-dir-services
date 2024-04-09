@@ -37,3 +37,13 @@ module "avm-res-network-virtualnetwork" {
   }
 
 }
+
+module "avm-res-compute-virtualmachine" {
+  source                  = "Azure/avm-res-compute-virtualmachine/azurerm"
+  version                 = "0.10.0"
+  resource_group_name     = azurerm_resource_group.main.name
+  location                = var.primary_region
+  name                    = module.naming.virtual_machine.name
+  zone                    = "1"
+  virtualmachine_sku_size = "Standard_B2ms"
+}
