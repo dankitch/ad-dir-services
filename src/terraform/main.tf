@@ -53,6 +53,7 @@ module "avm_res_keyvault_vault" {
   name                        = module.naming.key_vault.name_unique
   resource_group_name         = azurerm_resource_group.main.name
   location                    = azurerm_resource_group.main.location
+  enable_telemetry            = false
   enabled_for_disk_encryption = true
   network_acls = {
     default_action = "Allow"
