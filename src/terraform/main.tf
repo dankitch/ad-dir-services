@@ -28,7 +28,7 @@ module "avm-res-network-virtualnetwork" {
   version                       = "0.1.4"
   resource_group_name           = azurerm_resource_group.main.name
   location                      = var.primary_region
-  name                          = module.naming.virtual_network.name_unique
+  name                          = "${module.naming.virtual_network.name}-${var.primary_region}"
   subnets                       = local.subnets
   enable_telemetry              = false
   virtual_network_address_space = ["10.0.0.0/16"]
