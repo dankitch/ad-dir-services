@@ -16,7 +16,7 @@ module "naming" {
 
 locals {
   subnets = {
-    for i in range(3) : "subnet${i}" => {
+    for i in range(1) : "subnet${i}" => {
       address_prefixes = [cidrsubnet(local.virtual_network_address_space, 8, i)]
     }
   }
